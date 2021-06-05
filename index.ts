@@ -75,16 +75,16 @@ class UsersStore {
 */
 
 // Create a reducer
-const USER_LOAD = "[User] Load";
-const USER_CREATE = "[User] Create";
-const USER_UPDATE = "[User] Update";
-const USER_DELETE = "[User] Delete";
-const USER_SELECT = "[User] Select";
-const USER_CLEAR = "[User] Clear";
+const USER_LOAD = "User Load";
+const USER_CREATE = "User Create";
+const USER_UPDATE = "User Update";
+const USER_DELETE = "User Delete";
+const USER_SELECT = "User Select";
+const USER_CLEAR = "User Clear";
 
 const loadUser = (state, users): UsersState => {
   return {
-    users,
+    users: users.payload,
     CurrentUser: state.CurrentUser,
   };
 };
@@ -160,14 +160,12 @@ const updatedJane: User = {
 const userStore = new UsersStore(initialUserState, usersReducer);
 userStore.getState();
 userStore.dispatch({ type: USER_CREATE, payload: Jane });
-console.log("[User] created! Current State: ", userStore.getState());
+console.log("User created! Current State: ", userStore.getState());
 userStore.dispatch({ type: USER_UPDATE, payload: updatedJane });
-console.log("[User] updated! Current State: ", userStore.getState());
+console.log("User updated! Current State: ", userStore.getState());
 userStore.dispatch({ type: USER_DELETE, payload: Jane });
-console.log("[User] deleted! Current State: ", userStore.getState());
-userStore.dispatch({ type: USER_CLEAR, payload: James });
-console.log("[User] cleared! Current State: ", userStore.getState());
+console.log("User deleted! Current State: ", userStore.getState());
 userStore.dispatch({ type: USER_SELECT, payload: James });
-console.log("[User] selected! Current State: ", userStore.getState());
+console.log("User selected! Current State: ", userStore.getState());
 userStore.dispatch({ type: USER_CLEAR, payload: James });
-console.log("[User] cleared! Current State: ", userStore.getState());
+console.log("User cleared! Current State: ", userStore.getState());
