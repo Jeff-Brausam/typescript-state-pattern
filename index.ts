@@ -25,7 +25,7 @@ const Users: User[] = [Allysa, James];
 
 interface UsersState {
   users: User[];
-  CurrentUser: User;
+  currentUser: User;
 }
 
 const newUser: User = {
@@ -35,7 +35,7 @@ const newUser: User = {
 
 const initialUserState: UsersState = {
   users: Users,
-  CurrentUser: newUser,
+  currentUser: newUser,
 };
 
 interface AppState {
@@ -72,25 +72,25 @@ const USER_CLEAR = "User Clear";
 const loadUser = (state, users): UsersState => {
   return {
     users: users.payload,
-    CurrentUser: state.CurrentUser,
+    currentUser: state.currentUser,
   };
 };
 const selectUser = (state, user): UsersState => {
   return {
     users: state.users,
-    CurrentUser: user.payload,
+    currentUser: user.payload,
   };
 };
 const clearUser = (state): UsersState => {
   return {
     users: state.users,
-    CurrentUser: null,
+    currentUser: null,
   };
 };
 const createUser = (state, user): UsersState => {
   return {
     users: [...state.users, user.payload],
-    CurrentUser: state.CurrentUser,
+    currentUser: state.currentUser,
   };
 };
 const updateUser = (state, user): UsersState => {
@@ -98,13 +98,13 @@ const updateUser = (state, user): UsersState => {
     users: state.users.map((u) =>
       u.id === user.payload.id ? (<any>Object).assign({}, user.payload) : u
     ),
-    CurrentUser: state.CurrentUser,
+    currentUser: state.currentUser,
   };
 };
 const deleteUser = (state, user): UsersState => {
   return {
     users: state.users.filter((u) => u.id !== user.payload.id),
-    CurrentUser: state.CurrentUser,
+    currentUser: state.currentUser,
   };
 };
 
