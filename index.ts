@@ -1,8 +1,3 @@
-/* 
-    Objects are your nouns of programming. For the clearest communication you must 
-    be able to describe things. Who is your user, what are some of their features and characteristics 
-    define the entity or object you are working with. 
-*/
 interface BaseEntity {
   id: string | null;
 }
@@ -47,7 +42,6 @@ interface AppState {
   usersState: UsersState[];
 }
 
-// Create a store
 class UsersStore {
   reducer;
   state: UsersState;
@@ -68,13 +62,6 @@ class UsersStore {
   }
 }
 
-/* 
-  Functions and actions are your verbs of programming. What are those things that you 
-  have defined earlier doing? How do you want to interact with this collection of objects
-  or state, and possibly affect the application.  
-*/
-
-// Create a reducer
 const USER_LOAD = "User Load";
 const USER_CREATE = "User Create";
 const USER_UPDATE = "User Update";
@@ -156,7 +143,7 @@ const updatedJane: User = {
   email: "janesnewemail@yahoo.com",
 };
 
-// Put it all together!
+// now use it!
 const userStore = new UsersStore(initialUserState, usersReducer);
 userStore.getState();
 userStore.dispatch({ type: USER_CREATE, payload: Jane });
